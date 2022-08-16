@@ -8,12 +8,15 @@ const ObjectId = require("mongodb").ObjectId;
 
 // Show user's all data
 router.get("/marking", function(req, res){
-  let req_googleId = req.body.req_googleId;
+  let googleId = req.body.googleId;
   let db_connect = client.db('audiomarking')
-  db_connect.collection("markings").find({googleId : req_googleId}).toArray(function(err, result){
-    if (err) throw err;
-    res.json(result)
-  })
+  db_connect
+    .collection("markings")
+    .find({ googleId: googleId })
+    .toArray(function (err, result) {
+      if (err) throw err;
+      res.json(result);
+    });
 })
 
 // Show all public data
