@@ -13,10 +13,12 @@ app.get("/", (req, res)=>{
   res.send("Server is running")
 })
 
-app.use(cors({
-  origin: "https://audiomarking-backend.herokuapp.com",
-  credentials: true
-}))
+app.use(
+  cors({
+    origin: "https://audiomarking.netlify.app",
+    credentials: true,
+  })
+);
 app.use(cors())
 app.use(express.json())
 
