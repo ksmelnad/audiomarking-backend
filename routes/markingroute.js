@@ -7,9 +7,9 @@ const client = require("../db/conn")
 const ObjectId = require("mongodb").ObjectId;
 
 // Show user's all data
-router.get("/marking", function(req, res){
+router.post("/marking", function (req, res) {
   let googleId = req.body.googleId;
-  let db_connect = client.db('audiomarking')
+  let db_connect = client.db("audiomarking");
   db_connect
     .collection("markings")
     .find({ googleId: googleId })
@@ -17,7 +17,7 @@ router.get("/marking", function(req, res){
       if (err) throw err;
       res.json(result);
     });
-})
+});
 
 // Show all public data
 router.get("/public", function(req, res){
