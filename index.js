@@ -86,13 +86,13 @@ app.get(
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
-    failureRedirect: "http://localhost:3000",
-    session:true
+    failureRedirect: "https://audiomarking.netlify.app",
+    session: true,
   }),
-  function(req, res){
-    res.redirect("http://localhost:3000")
+  function (req, res) {
+    res.redirect("https://audiomarking.netlify.app");
   }
-)
+);
 
 app.get("/getuser", (req, res)=>{
   res.send(req.user)
